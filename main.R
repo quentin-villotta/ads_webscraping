@@ -11,8 +11,9 @@ source(file = 'R/clear_formulaire.R')
 source(file = 'R/clean_encodage.R')
 
 
-# Recuperation de la liste des departement français (métropole)
+# Recuperation de la liste des departements francais 
 liste_dep = extract_liste_dep_fr(save = 'data/liste_departements_france.RDS')
+head(liste_dep)
 
 # Initialisation du serveur Selenium
 remDr <- remoteDriver(remoteServerAddr = "localhost" ,
@@ -29,6 +30,7 @@ head(remDr$sessionInfo)
 
 
 # Clique sur le boutton commencer du site
+Sys.sleep(1)
 boutton_start <- remDr$findElement(using = "css", "#top .btn-lg")
 boutton_start$highlightElement() 
 boutton_start$clickElement()

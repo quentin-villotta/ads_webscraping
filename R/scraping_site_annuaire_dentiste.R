@@ -10,10 +10,10 @@ scrap_data_by_dep <- function(num_dep, nom_dep)
   validation_formulaire<- remDr$findElement(using = "css", "#btSubmit")
   validation_formulaire$clickElement()
   # Recupéation de l'information
-  liste_dentiste <-remDr$findElement(using = "css", "#DivRes .text-left")
+  liste_dentiste <-remDr$findElement(using = "css", ".text-left")
   page_source <- liste_dentiste$getPageSource()
   read_page <- read_html(page_source[[1]])
-  
+  Sys.sleep(1)
   # Recuperation de l'information
   ## Nom de famille medecin
   nom_medecin <-  read_page %>% 
